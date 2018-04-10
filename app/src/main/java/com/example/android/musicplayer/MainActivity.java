@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.android.musicplayer.R;
 
@@ -25,5 +27,11 @@ public class MainActivity extends AppCompatActivity {
         for (String file : files) {
             Log.i("Mihai", file);
         }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
+                R.layout.song_list, files);
+
+        ListView listView = findViewById(R.id.songs);
+        listView.setAdapter(arrayAdapter);
     }
 }
